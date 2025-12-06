@@ -15,14 +15,13 @@ def send_welcome(message):
     cursor = conn.cursor()
 
     cursor.execute('CREATE TABLE IF NOT EXISTS users ('
-                   'form_id int auto_increment PRIMARY KEY UNIQUE, '
+                   'form_id INTEGER PRIMARY KEY AUTOINCREMENT, '
                    'name varchar(50) NOT NULL,'
                    'age varchar(50) NOT NULL,'
                    'gender_user varchar(50) NOT NULL, '
                    'gender_search varchar(50) NOT NULL,'
                    'city varchar(50) NOT NULL, '
-                   'desc varchar(255) NOT NULL)')  # по неведомым причинам, form_id не автоинкрементится и
-    #  тупо хуярит NULL, надеюсь в апишке всё будет окей
+                   'desc varchar(255) NOT NULL)')
     conn.commit()
     cursor.close()
     conn.close()
