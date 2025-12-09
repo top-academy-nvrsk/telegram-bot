@@ -35,7 +35,8 @@ class DatingBot:
             response = self.api.create_user(query)
             print(f'Проверка создания пользователя, код: {response.status_code}')
 
-            self.bot.send_message(message.chat.id, 'Привет! Добро пожаловать...', reply_markup=markup)
+            self.bot.send_message(message.chat.id, 'Привет! Добро пожаловать в бот для поиска знакомств!',
+                                  reply_markup=markup)
 
             self.bot.register_next_step_handler(message, self.create_form)
         else:
@@ -97,7 +98,7 @@ class DatingBot:
         btn_no = types.KeyboardButton('Неа')
         markup.add(btn_confirm, btn_no)
 
-        self.bot.send_message(message.chat.id, 'Подтвердить сооздание анкеты?', reply_markup=markup)
+        self.bot.send_message(message.chat.id, 'Подтвердить создание анкеты?', reply_markup=markup)
         self.bot.register_next_step_handler(message, self.create_final, userinfo)
 
     def create_final(self, message, userinfo):
