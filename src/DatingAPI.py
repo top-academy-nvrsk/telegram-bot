@@ -25,3 +25,12 @@ class DatingAPI:
 
     def update_anquette(self, anq_id, data):
         return requests.put(f"{self.base_url}/anquettes/{anq_id}", json=data)
+
+    def get_likes(self, anq_id):
+        return requests.get(f'{self.base_url}/likes/{anq_id}')
+
+    def perform_interaction(self, endpoint, data):
+        return requests.post(f'{self.base_url}/{endpoint}', json=data)
+
+    def get_candidates(self):
+        return requests.get(f"{self.base_url}/anquettes")
