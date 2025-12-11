@@ -25,3 +25,6 @@ class DatingAPI:
 
     def update_anquette(self, anq_id, data):
         return requests.put(f"{self.base_url}/anquettes/{anq_id}", json=data)
+
+    def get_candidates(self):
+        return requests.get(f"{self.base_url}/anquettes")
